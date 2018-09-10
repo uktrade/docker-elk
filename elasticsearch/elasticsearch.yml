@@ -9,11 +9,6 @@ node:
   master: true
   data: true
 
-cloud:
-  aws:
-    protocol: https
-  node.auto_attributes: true
-
 discovery:
   ec2:
     availability_zones: eu-west-2a,us-west-2b
