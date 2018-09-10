@@ -12,7 +12,6 @@ node:
 cloud:
   aws:
     protocol: https
-    region: eu-west-2
   node.auto_attributes: true
 
 discovery:
