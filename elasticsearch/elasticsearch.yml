@@ -13,7 +13,7 @@ node:
 
 discovery:
   ec2:
-    availability_zones: eu-west-3a,eu-west-3b,eu-west-3c
+    availability_zones: eu-west-2a,eu-west-2b,eu-west-2c
     node_cache_time: 120s
     groups: ${CLUSTER_SECURITY_GROUP}
     endpoint: ec2.eu-west-2.amazonaws.com
