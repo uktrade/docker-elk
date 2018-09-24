@@ -1,7 +1,7 @@
 FROM docker.elastic.co/elasticsearch/elasticsearch:6.4.1
 
-RUN bin/elasticsearch-plugin install discovery-ec2
-RUN bin/elasticsearch-plugin install repository-s3
+RUN bin/elasticsearch-plugin install --batch discovery-ec2
+RUN bin/elasticsearch-plugin install --batch repository-s3
 RUN bin/x-pack/syskeygen
 
 #RUN sed -i 's/info/debug/g' /usr/share/elasticsearch/config/log4j2.properties
