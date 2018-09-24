@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:6.2.4
+FROM docker.elastic.co/logstash/logstash:6.4
 
 RUN cd /usr/share/logstash && bin/logstash-plugin install logstash-input-kinesis && bin/logstash-plugin install logstash-output-kinesis
 
