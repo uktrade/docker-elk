@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:6.4
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.4.1
 
 RUN bin/elasticsearch-plugin install discovery-ec2
 RUN bin/elasticsearch-plugin install repository-s3
