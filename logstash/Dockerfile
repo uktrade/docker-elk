@@ -1,15 +1,12 @@
 FROM docker.elastic.co/logstash/logstash:6.4.1
 
-RUN cd /usr/share/logstash && \
-	bin/logstash-plugin install logstash-input-kinesis && \
-	bin/logstash-plugin install logstash-codec-gzip_lines
+RUN cd /usr/share/logstash && bin/logstash-plugin install logstash-input-kinesis
 
 #COPY *.gem /usr/share/logstash/
 #RUN cd /usr/share/logstash && ls *.gem | xargs bin/logstash-plugin install 
 
 COPY logstash.yml /usr/share/logstash/config
 COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
-COPY pipelines/kinesis_from_cloudwatch.conf /usr/share/logstash/config/pipelines/kinesis_from_cloudwatch.conf
 COPY pipelines/kinesis_from_logstash.conf /usr/share/logstash/config/pipelines/kinesis_from_logstash.conf
 COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
 USER root
