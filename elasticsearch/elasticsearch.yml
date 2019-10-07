@@ -49,5 +49,6 @@ xpack.security.transport.ssl.verification_mode: none
 xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
+xpack.monitoring.elasticsearch.collection.enabled: true
 
 logger.discovery: "DEBUG"
