@@ -36,7 +36,7 @@ plugin.mandatory:
 - repository-s3
 
 xpack.security.audit.enabled: true
-xpack.security.audit.outputs: [ index ]
+xpack.security.audit.outputs: [ logfile ]
 
 xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
 xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
