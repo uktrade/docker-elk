@@ -35,7 +35,7 @@ plugin.mandatory:
 - discovery-ec2
 - repository-s3
 
-xpack.security.audit.enabled: true
+xpack.security.audit.enabled: false
 xpack.security.audit.outputs: [ logfile ]
 
 xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
