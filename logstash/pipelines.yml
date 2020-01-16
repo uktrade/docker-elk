@@ -2,3 +2,5 @@
   path.config: "/usr/share/logstash/config/pipelines/kinesis_from_cloudwatch.conf"
 - pipeline.id: kinesis_from_logstash
   path.config: "/usr/share/logstash/config/pipelines/kinesis_from_logstash.conf"
+- pipeline.id: nss_zscaler 
+  path.config: "/usr/share/logstash/config/pipelines/nss_syslog.conf"
