@@ -1,6 +1,6 @@
 FROM docker.elastic.co/logstash/logstash:6.8.6
 
-RUN cd /usr/share/logstash bin/logstash-plugin install logstash-output-kinesis
+RUN cd /usr/share/logstash && bin/logstash-plugin install logstash-output-kinesis
 
 COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
 COPY logstash.yml /usr/share/logstash/config
