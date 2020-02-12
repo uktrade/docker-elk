@@ -6,6 +6,8 @@ RUN bin/x-pack/syskeygen
 
 #RUN sed -i 's/info/debug/g' /usr/share/elasticsearch/config/log4j2.properties
 
+RUN mkdir /usr/share/elasticsearch/config/saml/ && chown elasticsearch:elasticsearch /usr/share/elasticsearch/config/saml/
+
 ADD elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
 
 COPY entrypoint.sh bin/entrypoint.sh

@@ -35,20 +35,51 @@ plugin.mandatory:
 - discovery-ec2
 - repository-s3
 
-xpack.security.audit.enabled: false
-xpack.security.audit.outputs: [ logfile ]
+#xpack.security.audit.enabled: false
+#xpack.security.audit.outputs: [ logfile ]
 
-xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
-xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
-xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
+#xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
+#xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
+#xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
 
-xpack.security.http.ssl.enabled: true 
-xpack.security.transport.ssl.enabled: true 
-
-xpack.security.transport.ssl.verification_mode: none
-xpack.ssl.verification_mode: none
+# This should not be required
+#xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
 xpack.monitoring.elasticsearch.collection.enabled: true
 
 logger.discovery: "DEBUG"
+
+xpack:
+  security:
+    audit:
+      enabled: false
+      outputs: [logfile]
+    enabled: true
+    http:
+      ssl:
+        enabled: true
+        key: "/usr/share/elasticsearch/config/node.key"
+        certificate: "/usr/share/elasticsearch/config/node.crt"
+        certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
+    transport:
+      ssl:
+        enabled: true
+        verification_mode: none
+    authc:
+      token:
+        enabled: true
+      realms:
+        saml1:
+          type: saml
+          order: 1
+          attributes.principal: "nameid"
+          attributes.groups: "groups"
+          idp.metadata.path: "https://sso.trade.uat.uktrade.io/idp/metadata/"
+          idp.entity_id: "https://sso.trade.uat.uktrade.io/idp/metadata"
+          sp.entity_id: "https://elk.ci.uktrade.io/"
+          sp.acs: "https://elk.ci.uktrade.io/api/security/v1/saml"
+          sp.logout: "https://elk.ci.uktrade.io/logout"
+          signing.key: "/usr/share/elasticsearch/config/saml/saml.key"
+          signing.certificate: "/usr/share/elasticsearch/config/saml/saml.crt"
+          signing.saml_messages: AuthnRequest
