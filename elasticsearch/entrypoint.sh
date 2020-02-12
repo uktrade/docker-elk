@@ -6,10 +6,16 @@
 : "${SAML_KEY:?Set SAML_KEY using --env}"
 : "${SAML_CERT:?Set SAML_CERT using --env}"
 
-printf "%s" "$ES_SSL_CA"     > /usr/share/elasticsearch/config/ca.crt
-printf "%s" "$ES_SSL_KEY"    > /usr/share/elasticsearch/config/node.key
-printf "%s" "$ES_SSL_CERT"   > /usr/share/elasticsearch/config/node.crt
+echo -e "$ES_SSL_CA"     > /usr/share/elasticsearch/config/ca.crt
+echo -e "$ES_SSL_KEY"    > /usr/share/elasticsearch/config/node.key
+echo -e "$ES_SSL_CERT"   > /usr/share/elasticsearch/config/node.crt
 echo -e "$SAML_KEY"      > /usr/share/elasticsearch/config/saml/saml.key
 echo -e "$SAML_CERT"     > /usr/share/elasticsearch/config/saml/saml.crt
+
+echo '----------------'
+cat  /usr/share/elasticsearch/config/node.crt
+echo '----------------'
+cat /usr/share/elasticsearch/config/saml/saml.crt
+echo '----------------'
 
 exec /usr/local/bin/docker-entrypoint.sh
