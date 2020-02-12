@@ -42,8 +42,8 @@ plugin.mandatory:
 #xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
 #xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
 
-# This should not be required
-#xpack.ssl.verification_mode: none
+
+xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
 xpack.monitoring.elasticsearch.collection.enabled: true
