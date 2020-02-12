@@ -4,8 +4,6 @@ cluster:
 
 cloud.node.auto_attributes: true
 
-discovery.zen.minimum_master_nodes: 2
-
 node:
   name: ${HOSTNAME}
   master: true
@@ -22,6 +20,7 @@ discovery:
     hosts_provider: ec2
     join_timeout: 90s
     ping_timeout: 60s
+    minimum_master_nodes: 2
 
 http.port: 9200
 transport.tcp.port: 9300
@@ -42,14 +41,13 @@ xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
 xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
 xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
 
-
 # Unfortunately this setting is required
 xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
 xpack.monitoring.elasticsearch.collection.enabled: true
 
-logger.discovery: "DEBUG"
+logger.discovery: "TRACE"
 
 xpack:
   security:
