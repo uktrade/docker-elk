@@ -38,11 +38,12 @@ plugin.mandatory:
 #xpack.security.audit.enabled: false
 #xpack.security.audit.outputs: [ logfile ]
 
-#xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
-#xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
-#xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
+xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
+xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
+xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
 
 
+# Unfortunately this setting is required
 xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
