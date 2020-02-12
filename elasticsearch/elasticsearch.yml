@@ -21,7 +21,7 @@ discovery:
   zen:
     hosts_provider: ec2
     join_timeout: 90s
-    ping_timeout: 30s
+    ping_timeout: 60s
 
 http.port: 9200
 transport.tcp.port: 9300
