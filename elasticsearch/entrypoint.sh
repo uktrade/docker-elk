@@ -9,7 +9,7 @@
 printf "%s" "$ES_SSL_CA"     > /usr/share/elasticsearch/config/ca.crt
 printf "%s" "$ES_SSL_KEY"    > /usr/share/elasticsearch/config/node.key
 printf "%s" "$ES_SSL_CERT"   > /usr/share/elasticsearch/config/node.crt
-printf "%s" "$SAML_KEY"      > /usr/share/elasticsearch/config/saml/saml.key
-printf "%s" "$SAML_CERT"     > /usr/share/elasticsearch/config/saml/saml.crt
+echo -e "$SAML_KEY"      > /usr/share/elasticsearch/config/saml/saml.key
+echo -e "$SAML_CERT"     > /usr/share/elasticsearch/config/saml/saml.crt
 
 exec /usr/local/bin/docker-entrypoint.sh
