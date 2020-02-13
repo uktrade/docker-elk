@@ -9,5 +9,5 @@ server.xsrf.whitelist: [/api/security/v1/saml]
 
 xpack.security.public:
   protocol: https
-  #hostname:
+  hostname: elk.ci.uktrade.io
   port: 443
