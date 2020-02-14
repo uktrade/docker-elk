@@ -10,6 +10,7 @@ node:
   data: true
 
 discovery:
+  initial_state_timeout: 60s
   ec2:
     availability_zones: eu-west-2a,eu-west-2b,eu-west-2c
     node_cache_time: 120s
