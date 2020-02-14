@@ -24,6 +24,8 @@ discovery:
 
 http.port: 9200
 transport.tcp.port: 9300
+transport.connect_timeout: 60s
+
 network.host:
 - eth0:ipv4
 - _local_
