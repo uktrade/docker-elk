@@ -1,0 +1,58 @@
+################### APM Server Configuration #########################
+
+############################# APM Server ######################################
+
+apm-server:
+  # Defines the host and port the server is listening on.  use "unix:/path/to.sock" to listen on a unix domain socket.
+  host: "0.0.0.0:8200"
+
+  # Authorization token to be checked. If a token is set here the agents must
+  # send their token in the following format: Authorization: Bearer <secret-token>.
+  # It is recommended to use an authorization token in combination with SSL enabled,
+  # and save the token in the beats keystore.
+  secret_token: "${APM_SECRET_TOKEN}"
+
+  # Enable secure communication between APM agents and the server. By default ssl is disabled.
+  ssl:
+    enabled: true
+    certificate_authorities: ['/usr/share/apm-server/config/ca.crt']
+    certificate: '/usr/share/apm-server/config/node.crt'
+    key: '/usr/share/apm-server/config/node.key'
+
+#-------------------------- Elasticsearch output ------------------------------
+output.elasticsearch:
+  enabled: true
+  hosts: ["${ES_HOST}"]
+  # Optional protocol and basic auth credentials.
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+
+  # Number of workers per Elasticsearch host.
+  #worker: 1
+
+  indices:
+    - index: "apm-%{[beat.version]}-sourcemap"
+      when.contains:
+        processor.event: "sourcemap"
+
+    - index: "apm-%{[beat.version]}-error-%{+yyyy.MM.dd}"
+      when.contains:
+        processor.event: "error"
+
+    - index: "apm-%{[beat.version]}-transaction-%{+yyyy.MM.dd}"
+      when.contains:
+        processor.event: "transaction"
+
+    - index: "apm-%{[beat.version]}-span-%{+yyyy.MM.dd}"
+      when.contains:
+        processor.event: "span"
+
+    - index: "apm-%{[beat.version]}-metric-%{+yyyy.MM.dd}"
+      when.contains:
+        processor.event: "metric"
+
+    - index: "apm-%{[beat.version]}-onboarding-%{+yyyy.MM.dd}"
+      when.contains:
+        processor.event: "onboarding"
+
