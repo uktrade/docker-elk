@@ -37,14 +37,10 @@ plugin.mandatory:
 - discovery-ec2
 - repository-s3
 
-#xpack.security.audit.enabled: false
-#xpack.security.audit.outputs: [ logfile ]
-
 xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
 xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
 xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
 
-# Unfortunately this setting is required
 xpack.ssl.verification_mode: none
 
 xpack.monitoring.enabled: true
@@ -80,8 +76,8 @@ xpack:
           order: 1
           attributes.principal: "nameid"
           attributes.groups: "groups"
-          idp.metadata.path: "https://sso.trade.uat.uktrade.io/idp/metadata/"
-          idp.entity_id: "https://sso.trade.uat.uktrade.io/idp/metadata"
+          idp.metadata.path: "https://sso.trade.gov.uk/idp/metadata/"
+          idp.entity_id: "https://sso.trade.gov.uk/idp/metadata"
           sp.entity_id: "https://elk.ci.uktrade.io:443/"
           sp.acs: "https://elk.ci.uktrade.io:443/api/security/v1/saml"
           sp.logout: "https://elk.ci.uktrade.io/logout"
