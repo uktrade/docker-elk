@@ -1,0 +1,13 @@
+server.name: kibana
+server.host: "0"
+elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+
+elasticsearch.ssl.verificationMode: none
+
+xpack.security.authProviders: [saml]
+server.xsrf.whitelist: [/api/security/v1/saml]
+
+xpack.security.public:
+  protocol: https
+  hostname: elk.ci.uktrade.io
+  port: 443
