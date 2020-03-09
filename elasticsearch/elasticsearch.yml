@@ -1,5 +1,5 @@
 cluster:
-  name: "elk-cluster"
+  name: "cluster"
   routing.allocation.awareness.attributes: aws_availability_zone
 
 cloud.node.auto_attributes: true
@@ -21,7 +21,7 @@ discovery:
     hosts_provider: ec2
     join_timeout: 90s
     ping_timeout: 60s
-    minimum_master_nodes: 2
+    minimum_master_nodes: 1     ### This needs to be set correctly
 
 http.port: 9200
 transport.tcp.port: 9300
@@ -46,7 +46,7 @@ xpack.ssl.verification_mode: none
 xpack.monitoring.enabled: true
 xpack.monitoring.elasticsearch.collection.enabled: true
 
-logger.discovery: "TRACE"
+#logger.discovery: "TRACE"
 
 xpack:
   security:
@@ -65,22 +65,21 @@ xpack:
         enabled: true
         verification_mode: none
     authc:
-      token:
-        enabled: true
+      providers: [token, basic]
       realms:
-        native1:
-          type: native
-          order: 0
-        saml1:
-          type: saml
-          order: 1
-          attributes.principal: "nameid"
-          attributes.groups: "groups"
-          idp.metadata.path: "https://sso.trade.gov.uk/idp/metadata/"
-          idp.entity_id: "https://sso.trade.gov.uk/idp/metadata"
-          sp.entity_id: "https://elk.ci.uktrade.io:443/"
-          sp.acs: "https://elk.ci.uktrade.io:443/api/security/v1/saml"
-          sp.logout: "https://elk.ci.uktrade.io/logout"
-          signing.key: "/usr/share/elasticsearch/config/saml/saml.key"
-          signing.certificate: "/usr/share/elasticsearch/config/saml/saml.crt"
-          signing.saml_messages: AuthnRequest
+        native:
+          native1:
+            order: 0
+        saml:
+          saml1:
+            order: 1
+            attributes.principal: "nameid"
+            attributes.groups: "groups"
+            idp.metadata.path: "https://sso.trade.gov.uk/idp/metadata/"
+            idp.entity_id: "https://sso.trade.gov.uk/idp/metadata"
+            sp.entity_id: "https://elk.ci.uktrade.digital:443/"
+            sp.acs: "https://elk.ci.uktrade.io:443/api/security/v1/saml"
+            sp.logout: "https://elk.ci.uktrade.digital/logout"
+            signing.key: "/usr/share/elasticsearch/config/saml/saml.key"
+            signing.certificate: "/usr/share/elasticsearch/config/saml/saml.crt"
+            signing.saml_messages: AuthnRequest
