@@ -15,4 +15,6 @@ echo -e "$SAML_CERT"     > /usr/share/elasticsearch/config/saml/saml.crt
 echo "$SYSTEM_KEY" | base64 -d > /usr/share/elasticsearch/config/system_key
 chmod 600 /usr/share/elasticsearch/config/system_key
 
+export EC2_HOSTNAME=$(curl http://169.254.169.254/latest/meta-data/hostname)
+
 exec /usr/local/bin/docker-entrypoint.sh

@@ -5,7 +5,7 @@ cluster:
 cloud.node.auto_attributes: true
 
 node:
-  name: ${HOSTNAME}
+  name: ${EC2_HOSTNAME}
   master: true
   data: true
 
