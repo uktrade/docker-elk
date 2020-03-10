@@ -37,35 +37,27 @@ plugin.mandatory:
 - discovery-ec2
 - repository-s3
 
-xpack.ssl.key:                     /usr/share/elasticsearch/config/node.key
-xpack.ssl.certificate:             /usr/share/elasticsearch/config/node.crt
-xpack.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
-
-xpack.ssl.verification_mode: none
-
 xpack.monitoring.enabled: true
 xpack.monitoring.elasticsearch.collection.enabled: true
 
-#logger.discovery: "TRACE"
-
 xpack:
   security:
-    audit:
-      enabled: false
-      outputs: [logfile]
-    enabled: true
     http:
       ssl:
         enabled: true
         key: "/usr/share/elasticsearch/config/node.key"
         certificate: "/usr/share/elasticsearch/config/node.crt"
         certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
+        verification_mode: none
     transport:
       ssl:
         enabled: true
         verification_mode: none
+    audit:
+      enabled: false
+    enabled: true
     authc:
-      providers: [token, basic]
+      token.enabled: true
       realms:
         native:
           native1:
