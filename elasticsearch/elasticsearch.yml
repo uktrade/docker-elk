@@ -1,5 +1,5 @@
 cluster:
-  name: "cluster"
+  name: elk-elasticsearch #${CLUSTER_NAME}
   routing.allocation.awareness.attributes: aws_availability_zone
 
 cloud.node.auto_attributes: true
