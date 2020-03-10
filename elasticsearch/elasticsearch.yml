@@ -21,7 +21,7 @@ discovery:
     hosts_provider: ec2
     join_timeout: 90s
     ping_timeout: 60s
-    minimum_master_nodes: 1     ### This needs to be set correctly
+    minimum_master_nodes: 3
 
 http.port: 9200
 transport.tcp.port: 9300
