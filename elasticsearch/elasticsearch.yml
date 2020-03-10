@@ -48,14 +48,14 @@ xpack:
         key: "/usr/share/elasticsearch/config/node.key"
         certificate: "/usr/share/elasticsearch/config/node.crt"
         certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
-        verification_mode: none
+        verification_mode: certificate
     transport:
       ssl:
         enabled: true
         key: "/usr/share/elasticsearch/config/node.key"
         certificate: "/usr/share/elasticsearch/config/node.crt"
         certificate_authorities: [ "/usr/share/elasticsearch/config/ca.crt" ]
-        verification_mode: none
+        verification_mode: certificate
     audit:
       enabled: false
     enabled: true
