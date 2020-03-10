@@ -15,15 +15,4 @@ echo -e "$SAML_CERT"     > /usr/share/elasticsearch/config/saml/saml.crt
 echo "$SYSTEM_KEY" | base64 -d > /usr/share/elasticsearch/config/system_key
 chmod 600 /usr/share/elasticsearch/config/system_key
 
-echo "--------"
-echo "system key"
-echo "$SYSTEM_KEY"
-echo "--------"
-echo "CA"
-cat /usr/share/elasticsearch/config/ca.crt
-echo "--------"
-echo "cert"
-cat /usr/share/elasticsearch/config/node.crt
-echo "--------"
-
 exec /usr/local/bin/docker-entrypoint.sh
