@@ -27,11 +27,10 @@ discovery:
     host_type: private_ip
 
 http.port: 9200
-transport.tcp.port: 9300
 transport.connect_timeout: 60s
 
 network.host:
-- eth0:ipv4
+- _ec2:privateIp_
 - _local_
 network.bind_host: 0
 network.publish_host: _ec2:privateIp_
