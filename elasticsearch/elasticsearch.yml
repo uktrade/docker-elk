@@ -22,7 +22,7 @@ discovery:
   ec2:
     availability_zones: eu-west-2a,eu-west-2b,eu-west-2c
     node_cache_time: 120s
-    groups: [${CLUSTER_SECURITY_GROUP}]
+    groups: ${CLUSTER_SECURITY_GROUP}
     endpoint: ec2.eu-west-2.amazonaws.com
     host_type: private_ip
 
