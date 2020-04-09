@@ -7,7 +7,13 @@ elasticsearch.ssl.verificationMode: none
 xpack.security.authProviders: [saml]
 server.xsrf.whitelist: [/api/security/v1/saml]
 
+server:
+  ssl:
+    enabled: true
+    key: /usr/share/kibana/config/node.key
+    certificate: /usr/share/kibana/config/node.crt
+
 xpack.security.public:
   protocol: https
-  hostname: elk.ci.uktrade.io
+  hostname: elk.uktrade.io
   port: 443
