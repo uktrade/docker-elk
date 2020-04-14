@@ -5,6 +5,7 @@ elasticsearch.hosts: [ "http://elasticsearch:9200" ]
 elasticsearch.ssl.verificationMode: none
 
 xpack.security.authProviders: [saml]
+xpack.reporting.kibanaServer.hostname: 0.0.0.0
 server.xsrf.whitelist: [/api/security/v1/saml]
 
 server:
