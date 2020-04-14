@@ -16,5 +16,5 @@ server:
 
 xpack.security.public:
   protocol: https
-  hostname: elk.uktrade.io
+  hostname: elk.uktrade.digital
   port: 443
