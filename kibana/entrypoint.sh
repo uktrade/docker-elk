@@ -6,10 +6,4 @@
 echo -e "$SSL_CERTIFICATE"     > /usr/share/kibana/config/node.crt
 echo -e "$SSL_KEY"    > /usr/share/kibana/config/node.key
 
-echo "---------------------------------"
-cat /usr/share/kibana/config/node.key
-echo "---------------------------------"
-cat /usr/share/kibana/config/node.crt
-echo "---------------------------------"
-
 exec /usr/local/bin/kibana-docker
