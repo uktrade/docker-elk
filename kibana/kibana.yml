@@ -7,14 +7,12 @@ elasticsearch.ssl.verificationMode: none
 #xpack.reporting.kibanaServer.hostname: 0.0.0.0
 server.xsrf.whitelist: [/api/security/v1/saml]
 
-#xpack:
-#  security:
-#    authProviders: [saml, basic]
-#    authc:
-#      realms:
-#        native:
-#          native1:
-#            order: 0
+xpack.security.authc.providers:
+  saml.saml1:
+    order: 0
+    realm: "saml1"
+  basic.basic1:
+    order: 1
 
 server:
   ssl:
