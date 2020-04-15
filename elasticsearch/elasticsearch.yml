@@ -74,9 +74,9 @@ xpack:
             attributes.groups: "groups"
             idp.metadata.path: "https://sso.trade.gov.uk/idp/metadata/"
             idp.entity_id: "https://sso.trade.gov.uk/idp/metadata"
-            sp.entity_id: "https://elk.ci.uktrade.digital:443/"
-            sp.acs: "https://elk.ci.uktrade.io:443/api/security/v1/saml"
-            sp.logout: "https://elk.ci.uktrade.digital/logout"
+            sp.entity_id: "https://elk.uktrade.digital:443/"
+            sp.acs: "https://elk.uktrade.digital:443/api/security/v1/saml"
+            sp.logout: "https://elk.uktrade.digital/logout"
             signing.key: "/usr/share/elasticsearch/config/saml/saml.key"
             signing.certificate: "/usr/share/elasticsearch/config/saml/saml.crt"
             signing.saml_messages: AuthnRequest
