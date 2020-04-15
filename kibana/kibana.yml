@@ -4,7 +4,7 @@ elasticsearch.hosts: [ "http://elasticsearch:9200" ]
 
 elasticsearch.ssl.verificationMode: none
 
-xpack.security.authProviders: [saml]
+xpack.security.authc.providers: [saml, basic]
 server.xsrf.whitelist: [/api/security/v1/saml]
 
 server:
