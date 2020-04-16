@@ -2,13 +2,6 @@ cluster:
   name: elk-elasticsearch #${CLUSTER_NAME}
   routing.allocation.awareness.attributes: aws_availability_zone
 
-cluster.initial_master_nodes:
-  - 10.37.105.198
-  - 10.37.95.92
-  - 10.37.94.40
-  - 10.37.69.127
-  - 10.37.100.236
-
 cloud.node.auto_attributes: true
 
 node:
