@@ -27,8 +27,7 @@ output.elasticsearch:
   protocol: "https"
   username: "${ES_USERNAME}"
   password: "${ES_PASSWORD}"
-  ssl:
-    enabled: false
+  ssl.enabled: false
 
   # Number of workers per Elasticsearch host.
   #worker: 1
