@@ -4,10 +4,16 @@ elasticsearch.hosts: [ "http://elasticsearch:9200" ]
 
 elasticsearch.ssl.verificationMode: none
 
-xpack.security.authProviders: [saml]
-server.xsrf.whitelist: [/api/security/v1/saml]
+xpack.security.authc.providers: [saml, basic]
+server.xsrf.whitelist: [/api/security/v1/saml,/api/security/saml/callback]
+
+server:
+  ssl:
+    enabled: true
+    key: /usr/share/kibana/config/node.key
+    certificate: /usr/share/kibana/config/node.crt
 
 xpack.security.public:
   protocol: https
-  hostname: elk.ci.uktrade.io
+  hostname: elk.uktrade.digital
   port: 443
