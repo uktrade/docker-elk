@@ -18,6 +18,7 @@ apm-server:
     certificate_authorities: ['/usr/share/apm-server/config/ca.crt']
     certificate: '/usr/share/apm-server/config/node.crt'
     key: '/usr/share/apm-server/config/node.key'
+    client_authentication: none
 
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
