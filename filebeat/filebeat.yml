@@ -1,0 +1,23 @@
+loggin.level: debug
+
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  #ssl.verification_mode: none
+
+setup.kibana:
+  host: "${KIBANA_HOST}"
+  username: "${KIBANA_USERNAME}"
+  password: "${KIBANA_PASSWORD}"
+
+filebeat.modules:
+  - module: okta
+    system:
+      enabled: true
+      # API key to access Okta
+      var.api_key: "${UKTRADE_OKTA_API_KEY}"
+      # URL of the Okta REST API
+      var.url: "${UKTRADE_OKTA_API_URL}"
+
