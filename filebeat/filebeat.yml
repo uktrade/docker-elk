@@ -7,10 +7,10 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
 
-# setup:
-#   kibana:
-#     host: "${KIBANA_HOST}"
-#   dashboards.enabled: true
+setup:
+  kibana:
+    host: "${KIBANA_HOST}"
+  # dashboards.enabled: true
 
 filebeat.modules:
   - module: okta
