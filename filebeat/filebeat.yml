@@ -5,12 +5,10 @@ output.elasticsearch:
   protocol: "https"
   username: "${ES_USERNAME}"
   password: "${ES_PASSWORD}"
-  #ssl.verification_mode: none
+  ssl.verification_mode: none
 
 setup.kibana:
   host: "${KIBANA_HOST}"
-  username: "${KIBANA_USERNAME}"
-  password: "${KIBANA_PASSWORD}"
 
 filebeat.modules:
   - module: okta
