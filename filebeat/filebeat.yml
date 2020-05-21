@@ -1,5 +1,3 @@
-loggin.level: debug
-
 output.elasticsearch:
   hosts: ["${ES_HOST}"]
   protocol: "https"
@@ -7,10 +5,7 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
 
-# setup:
-#   kibana:
-#     host: "${KIBANA_HOST}"
-#   dashboards.enabled: true
+setup.ilm.check_exists: false
 
 filebeat.modules:
   - module: okta
