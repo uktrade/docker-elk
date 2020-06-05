@@ -1,4 +1,9 @@
 http.host: "0.0.0.0"
-
-#log.level: trace 
+xpack.management.enabled: true
+xpack.management.elasticsearch.hosts: "${XPACK_MANGEMENT_ELASTICSEARCH_HOSTS}"
+xpack.management.elasticsearch.username: "${XPACK_MANGEMENT_ELASTICSEARCH_USERNAME}"
+xpack.management.elasticsearch.password: "${XPACK_MANGEMENT_ELASTICSEARCH_PASSWORD}"
+xpack.management.logstash.poll_interval: 5s
+xpack.management.pipeline.id: ["${XPACK_MANGEMENT_PIPELINE_ID}"]
+#log.level: trace
 #config.debug: true
