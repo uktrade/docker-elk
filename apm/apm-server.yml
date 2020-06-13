@@ -30,12 +30,9 @@ output.elasticsearch:
   username: "${ES_USERNAME}"
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
-  worker: ${APM_WORKERS_SIZE} # Number of workers per es host
-  bulk_max_size: ${APM_INDEXING_BULK_SIZE}
-
-
-  # Number of workers per Elasticsearch host.
-  #worker: 1
+  # Number of workers per es host
+  worker: 4 
+  bulk_max_size: 5120
 
   indices:
     - index: "apm-%{[beat.version]}-sourcemap"
@@ -67,7 +64,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: ${APM_QUEUE_EVENTS_SIZE} 
+    events: 20480
 
 #============================== Xpack Monitoring ===============================
 xpack.monitoring.enabled: true
