@@ -14,6 +14,11 @@ apm-server:
   # and save the token in the beats keystore.
   secret_token: "${APM_SECRET_TOKEN}"
 
+  expvar:
+    enabled: true
+    # Url to expose expvar
+    url: "/debug/vars"
+
   # Enable secure communication between APM agents and the server. By default ssl is disabled.
   ssl:
     enabled: true
