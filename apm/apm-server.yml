@@ -70,6 +70,7 @@ queue:
 #==================================  Setup =====================================
 
 setup.template.enabled: true
+setup.template.overwrite: true
 setup.template.settings:
   index.number_of_shards: 5
 
