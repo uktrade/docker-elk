@@ -44,7 +44,7 @@ output.elasticsearch:
   ssl.verification_mode: none
   # Number of workers per es host
   worker: 8 
-  bulk_max_size: 10240
+  bulk_max_size: 5120
 
   indices:
     - index: "apm-%{[observer.version]}-sourcemap"
@@ -76,7 +76,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 1000000
+    events: 120000
 
 
 #============================== Xpack Monitoring ===============================
