@@ -65,7 +65,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 20480
+    events: 120000
 
 #==================================  Setup =====================================
 
