@@ -27,6 +27,14 @@ apm-server:
     key: '/usr/share/apm-server/config/node.key'
     client_authentication: none
 
+
+  # Enable Kibana for dynamic agents configuration from the UI
+  kibana:
+    enabled: true
+    host: "${KIBANA_URL}"
+    protocol: https
+
+
 #=====================  Index Template Setup ==================================
 
 setup.template.enabled: true
@@ -78,13 +86,6 @@ queue:
     # Max number of events the queue can buffer
     events: 120000
 
-
-#==============================  Kibana Config =================================
-
-kibana:
-  enabled: true
-  host: "${KIBANA_URL}"
-  protocol: https
 
 #============================== Xpack Monitoring ===============================
 monitoring.enabled: true
