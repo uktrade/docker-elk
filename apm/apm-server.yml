@@ -3,6 +3,7 @@ logging.level: "${APM_LOG_LEVEL}"
 
 ############################# APM Server ######################################
 
+
 apm-server:
   # Defines the host and port the server is listening on.  use "unix:/path/to.sock" to listen on a unix domain socket.
   host: "0.0.0.0:8200"
@@ -35,27 +36,27 @@ output.elasticsearch:
   bulk_max_size: 5120
 
   indices:
-    - index: "apm-%{[beat.version]}-sourcemap"
+    - index: "apm-%{[observer.version]}-sourcemap"
       when.contains:
         processor.event: "sourcemap"
 
-    - index: "apm-%{[beat.version]}-error-%{+xxxx.ww}"
+    - index: "apm-%{[observer.version]}-error-%{+xxxx.ww}"
       when.contains:
         processor.event: "error"
 
-    - index: "apm-%{[beat.version]}-transaction-%{+xxxx.ww}"
+    - index: "apm-%{[observer.version]}-transaction-%{+xxxx.ww}"
       when.contains:
         processor.event: "transaction"
 
-    - index: "apm-%{[beat.version]}-span-%{+xxxx.ww}"
+    - index: "apm-%{[observer.version]}-span-%{+xxxx.ww}"
       when.contains:
         processor.event: "span"
 
-    - index: "apm-%{[beat.version]}-metric-%{+xxxx.ww}"
+    - index: "apm-%{[observer.version]}-metric-%{+xxxx.ww}"
       when.contains:
         processor.event: "metric"
 
-    - index: "apm-%{[beat.version]}-onboarding-%{+xxxx.ww}"
+    - index: "apm-%{[observer.version]}-onboarding-%{+xxxx.ww}"
       when.contains:
         processor.event: "onboarding"
 
@@ -65,6 +66,12 @@ queue:
   mem:
     # Max number of events the queue can buffer
     events: 20480
+
+#==================================  Setup =====================================
+
+setup.template.enabled: true
+setup.template.settings:
+  index.number_of_shards: 5
 
 #============================== Xpack Monitoring ===============================
 xpack.monitoring.enabled: true
