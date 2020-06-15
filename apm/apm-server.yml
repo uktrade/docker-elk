@@ -32,8 +32,8 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
   # Number of workers per es host
-  worker: 4 
-  bulk_max_size: 5120
+  worker: 8 
+  bulk_max_size: 10240
 
   indices:
     - index: "apm-%{[observer.version]}-sourcemap"
@@ -65,7 +65,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 120000
+    events: 1000000
 
 #==================================  Setup =====================================
 
