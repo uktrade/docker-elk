@@ -79,6 +79,13 @@ queue:
     events: 120000
 
 
+#==============================  Kibana Config =================================
+
+kibana:
+  enabled: true
+  host: "${KIBANA_URL}"
+  protocol: https
+
 #============================== Xpack Monitoring ===============================
 monitoring.enabled: true
 monitoring.elasticsearch:

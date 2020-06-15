@@ -14,6 +14,7 @@ services:
       - ES_PASSWORD
       - ES_MONITORING_USERNAME
       - ES_MONITORING_PASSWORD
+      - KIBANA_URL
       - APM_SECRET_TOKEN
       - APM_SSL_CA
       - APM_SSL_KEY
