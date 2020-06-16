@@ -30,7 +30,7 @@ apm-server:
 
   # Enable Kibana for dynamic agents configuration from the UI
   kibana:
-    enabled: false
+    enabled: true
     host: "${KIBANA_URL}"
     protocol: https
 
