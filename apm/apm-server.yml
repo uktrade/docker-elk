@@ -52,10 +52,10 @@ output.elasticsearch:
   ssl.verification_mode: none
   # Number of workers per es host
   worker: 8 
-  bulk_max_size: 5120
+  bulk_max_size: 40000
   # Max permitted duration for reading an entire response in seconds
-  read_timeout: 60
-  write_timeout: 30
+  read_timeout: 60s
+  write_timeout: 30s
   # Maz permitted size of an event accepted by the server the be processed in bytes
   max_event_size: 1228800 # around 1mb
 
@@ -89,8 +89,9 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 5000000
+    events: 3000000
 
+max_procs: 8
 
 #============================== Xpack Monitoring ===============================
 monitoring.enabled: true
