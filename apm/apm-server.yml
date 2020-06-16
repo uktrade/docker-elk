@@ -92,7 +92,7 @@ queue:
   mem:
     # Max number of events the queue can buffer
     events: 3000000
-    flush.min_events: 2048
+    flush.min_events: 512
 
 max_procs: 8
 
