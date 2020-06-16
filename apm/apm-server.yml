@@ -53,6 +53,11 @@ output.elasticsearch:
   # Number of workers per es host
   worker: 8 
   bulk_max_size: 5120
+  # Max permitted duration for reading an entire response in seconds
+  read_timeout: 60
+  write_timeout: 30
+  # Maz permitted size of an event accepted by the server the be processed in bytes
+  max_event_size: 1228800 # around 1mb
 
   indices:
     - index: "apm-%{[observer.version]}-sourcemap"
@@ -84,7 +89,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 120000
+    events: 5000000
 
 
 #============================== Xpack Monitoring ===============================
