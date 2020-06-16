@@ -32,6 +32,8 @@ apm-server:
   kibana:
     enabled: true
     host: "${KIBANA_URL}"
+    username: "${KIBANA_USERNAME}"
+    password: "${KIBANA_PASSWORD}"
     protocol: https
 
 
