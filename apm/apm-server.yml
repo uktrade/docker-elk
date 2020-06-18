@@ -53,13 +53,11 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
   # Number of workers per es host
-  worker: 8 
-  bulk_max_size: 40000
+  worker: "${APM_WORKERS_SIZE}"
+  bulk_max_size: "${APM_INDEXING_BULK_SIZE}"
   # Max permitted duration for reading an entire response in seconds
-  read_timeout: 60s
+  read_timeout: 30s
   write_timeout: 30s
-  # Maz permitted size of an event accepted by the server the be processed in bytes
-  max_event_size: 1228800 # around 1mb
 
   indices:
     - index: "apm-%{[observer.version]}-sourcemap"
@@ -91,10 +89,7 @@ output.elasticsearch:
 queue:
   mem:
     # Max number of events the queue can buffer
-    events: 3000000
-    flush.min_events: 512
-
-max_procs: 8
+    events: "${APM_QUEUE_EVENTS_SIZE}"
 
 #============================== Xpack Monitoring ===============================
 monitoring.enabled: true
