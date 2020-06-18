@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu -o pipefail
+
 : "${ES_SSL_CA:?Set ES_SSL_CA using --env}"
 : "${ES_SSL_KEY:?Set ES_SSL_KEY using --env}"
 : "${ES_SSL_CERT:?Set ES_SSL_CERT using --env}"
