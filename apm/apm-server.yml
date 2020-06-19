@@ -58,6 +58,7 @@ output.elasticsearch:
   # Max permitted duration for reading an entire response in seconds
   read_timeout: 30s
   write_timeout: 30s
+  max_event_size: 1228800 # around 1mb
 
   indices:
     - index: "apm-%{[observer.version]}-sourcemap"
