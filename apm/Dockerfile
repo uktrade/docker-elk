@@ -6,6 +6,7 @@ COPY entrypoint.sh bin/entrypoint.sh
 USER root
 RUN mkdir /usr/share/apm-server/config
 RUN chown root:apm-server /usr/share/apm-server/apm-server.yml
+RUN chmod go-w /usr/share/apm-server/apm-server.yml
 RUN chown root:apm-server bin/entrypoint.sh && chmod 0750 bin/entrypoint.sh
 RUN chown apm-server:apm-server /usr/share/apm-server/config
 USER apm-server
