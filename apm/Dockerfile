@@ -1,4 +1,4 @@
-FROM docker.elastic.co/apm/apm-server:7.7.1
+FROM docker.elastic.co/apm/apm-server:7.8.0
 
 COPY apm-server.yml /usr/share/apm-server/apm-server.yml
 COPY entrypoint.sh bin/entrypoint.sh
