@@ -4,12 +4,10 @@ output.elasticsearch:
   username: "${ES_USERNAME}"
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
-  index: "dit-o365-%{+xxxx.ww}"
 
-setup.template:
-  name: 'dit-o365'
-  pattern: 'dit-o365-*'
-
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-o365"
+setup.ilm.pattern: "{now/d}-000001"
 setup.ilm.check_exists: false
 
 filebeat.modules:
