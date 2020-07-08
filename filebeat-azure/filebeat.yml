@@ -15,7 +15,7 @@ filebeat.modules:
     activitylogs:
       enabled: true
       var:
-        eventhub: "insights-operational-logs"
+        eventhub: "${AZURE_EVENTHUB_ENTITY}"
         consumer_group: "$Default"
         connection_string: "${AZURE_EVENTHUB_CS}"
         storage_account: "${AZURE_EVENTHUB_STORAGE}"
