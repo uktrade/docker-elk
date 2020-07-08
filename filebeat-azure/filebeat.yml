@@ -1,0 +1,28 @@
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  ssl.verification_mode: none
+
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-azure"
+setup.ilm.pattern: "{now/d}-000001"
+setup.ilm.check_exists: false
+
+filebeat.modules:
+  - module: azure
+    activitylogs:
+    enabled: true
+    var:
+      eventhub: "insights-operational-logs"
+      consumer_group: "$Default"
+      connection_string: "${AZURE_EVENTHUB_CS}"
+      storage_account: "${AZURE_EVENTHUB_STORAGE}"
+      storage_account_key: "${AZURE_EVENTHUB_STORAGE_KEY}"
+
+monitoring:
+  enabled: true
+  elasticsearch:
+    username: "${ES_MONITORING_USERNAME}"
+    password: "${ES_MONITORING_PASSWORD}"
