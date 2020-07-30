@@ -5,6 +5,9 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
 
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-okta-uktrade"
+setup.ilm.pattern: "{now/d}-000001"
 setup.ilm.check_exists: false
 
 filebeat.modules:
