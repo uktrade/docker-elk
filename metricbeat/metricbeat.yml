@@ -1,0 +1,32 @@
+setup.kibana:
+  host: "${KIBANA_HOST}:5601"
+  username: "${KIBANA_USER}"
+  password: "${KIBANA_PASSWORD}"
+  protocol: https
+
+output.elasticsearch:
+  hosts: ["${ES_HOST}:9200"]
+  username: "${ES_USER}"
+  password: "${ES_PASSWORD}"
+  protocol: https
+
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: true
+
+processors:
+- add_cloud_metadata: ~
+- add_docker_metadata: ~
+
+ssl:
+  enabled: true
+  certificate_authorities: ['/usr/share/metricbeat/config/ca.crt']
+  certificate: '/usr/share/metricbeat/config/node.crt'
+  key: '/usr/share/metricbeat/config/node.key'
+  client_authentication: none
+
+
+monitoring.enabled: true
+monitoring.elasticsearch:
+  username: "${ES_MONITORING_USERNAME}"
+  password: "${ES_MONITORING_PASSWORD}"
