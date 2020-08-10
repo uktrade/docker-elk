@@ -1,5 +1,5 @@
 metricbeat.modules:
 - module: prometheus
   period: 10s
-  hosts: ["https://prom.ci.uktrade.io"]
+  hosts: ["${PROMETHEUS_HOSTS"]
   metrics_path: /metrics

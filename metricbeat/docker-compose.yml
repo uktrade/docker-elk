@@ -10,14 +10,15 @@ services:
         condition: service_healthy
     container_name: metricbeat
     environment: 
-      - KIBANA_HOST="http://kibana"
+      - KIBANA_HOST
       - KIBANA_USERNAME
       - KIBANA_PASSWORD
-      - ES_HOST="http://elesticsearch"
+      - ES_HOST
       - ES_USERNAME
       - ES_PASSWORD
       - ES_MONITORING_USERNAME
       - ES_MONITORING_PASSWORD
+      - PROMETHEUS_HOSTS
     cap_add: ["CHOWN","SETGID","SETUID"]
     cap_drop: ["ALL"]
     volumes:
