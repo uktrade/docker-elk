@@ -1,5 +1,7 @@
 metricbeat.modules:
 - module: prometheus
   period: 10s
-  hosts: ["${PROMETHEUS_HOSTS"]
+  hosts: "${PROMETHEUS_HOSTS"
+  username: "${PROMETHEUS_USER}"
+  password: "${PROMETHEUS_PASSWORD}"
   metrics_path: /metrics
