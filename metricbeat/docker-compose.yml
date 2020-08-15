@@ -19,12 +19,13 @@ services:
       - ES_MONITORING_USERNAME
       - ES_MONITORING_PASSWORD
       - PROMETHEUS_HOSTS
+      - PROMETHEUS_USER
+      - PROMETHEUS_PASSWORD
+      - METRICBEAT_SSL_CA
+      - METRICBEAT_SSL_KEY
+      - METRICBEAT_SSL_CERT
     cap_add: ["CHOWN","SETGID","SETUID"]
     cap_drop: ["ALL"]
-    volumes:
-      - ./metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
-      - ./modules.d:/usr/share/metricbeat/modules.d
-
     command: /bin/entrypoint.sh
     networks:
       - elastic

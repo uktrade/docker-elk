@@ -1,22 +1,21 @@
 setup.kibana:
-  host: "${KIBANA_HOST}"
-  username: "${KIBANA_USER}"
-  password: "${KIBANA_PASSWORD}"
+  host: ${KIBANA_HOST}
+  username: ${KIBANA_USERNAME}
+  password: ${KIBANA_PASSWORD}
   protocol: https
 
 output.elasticsearch:
   hosts: ["${ES_HOST}"]
-  username: "${ES_USER}"
-  password: "${ES_PASSWORD}"
+  username: ${ES_USERNAME}
+  password: ${ES_PASSWORD}
   protocol: https
 
-metricbeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: true
 
-processors:
-- add_cloud_metadata: ~
-- add_docker_metadata: ~
+# metricbeat.config.modules:
+#   # Glob pattern for configuration loading
+#   path: ${path.config}/modules.d/*.yml
+#   # Set to true to enable config reloading
+#   reload.enabled: false    
 
 ssl:
   enabled: true
@@ -28,11 +27,22 @@ ssl:
 
 monitoring.enabled: true
 monitoring.elasticsearch:
-  username: "${ES_MONITORING_USERNAME}"
-  password: "${ES_MONITORING_PASSWORD}"
+  username: ${ES_MONITORING_USERNAME}
+  password: ${ES_MONITORING_PASSWORD}
 
 setup.ilm:
   enabled: auto
-  rollover_alias: "metricbeat"
+  index: metricbeat
+  rollover_alias: metricbeat
   pattern: "{now/d}-000001"
   check_exists: false
+
+
+metricbeat.modules:
+  - module: prometheus
+    period: 10s
+    hosts: ["${PROMETHEUS_HOSTS}"]
+    enabled: true
+    username: ${PROMETHEUS_USER}
+    password: ${PROMETHEUS_PASSWORD}
+    metrics_path: /metrics
