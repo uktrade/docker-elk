@@ -10,13 +10,6 @@ output.elasticsearch:
   password: ${ES_PASSWORD}
   protocol: https
 
-
-# metricbeat.config.modules:
-#   # Glob pattern for configuration loading
-#   path: ${path.config}/modules.d/*.yml
-#   # Set to true to enable config reloading
-#   reload.enabled: false    
-
 ssl:
   enabled: true
   certificate_authorities: ['/usr/share/metricbeat/config/ca.crt']
@@ -41,8 +34,8 @@ setup.ilm:
 metricbeat.modules:
   - module: prometheus
     period: 10s
-    hosts: ["${PROMETHEUS_HOSTS}"]
+    hosts: ["${GOV_PASS_EXPORTER_HOST}"]
     enabled: true
-    username: ${PROMETHEUS_USER}
-    password: ${PROMETHEUS_PASSWORD}
+    username: ${GOV_PASS_USER}
+    password: ${GOV_PASS_PASSWORD}
     metrics_path: /metrics
