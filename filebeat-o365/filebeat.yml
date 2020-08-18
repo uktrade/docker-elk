@@ -5,16 +5,20 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
 
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-o365"
+setup.ilm.pattern: "{now/d}-000001"
 setup.ilm.check_exists: false
 
 filebeat.modules:
-  - module: okta
-    system:
+  - module: o365
+    audit:
       enabled: true
-      # API key to access Okta
-      var.api_key: "${UKTRADE_OKTA_API_KEY}"
-      # URL of the Okta REST API
-      var.url: "${UKTRADE_OKTA_API_URL}"
+      var.application_id: "${APPLICATION_ID}"
+      var.tenants:
+        - id: "${TENANT_ID}"
+          name: "${TENANT_HOSTNAME}"
+      var.client_secret: "${CLIENT_SECRET}"
 
 monitoring:
   enabled: true

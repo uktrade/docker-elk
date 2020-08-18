@@ -1,0 +1,26 @@
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  ssl.verification_mode: none
+
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-okta-uktrade"
+setup.ilm.pattern: "{now/d}-000001"
+setup.ilm.check_exists: false
+
+filebeat.modules:
+  - module: okta
+    system:
+      enabled: true
+      # API key to access Okta
+      var.api_key: "${UKTRADE_OKTA_API_KEY}"
+      # URL of the Okta REST API
+      var.url: "${UKTRADE_OKTA_API_URL}"
+
+monitoring:
+  enabled: true
+  elasticsearch:
+    username: "${ES_MONITORING_USERNAME}"
+    password: "${ES_MONITORING_PASSWORD}"
