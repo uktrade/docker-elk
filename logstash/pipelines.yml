@@ -1,3 +1,6 @@
-- pipeline.id: govuk-paas 
-- pipeline.id: cloudwatch 
-- pipeline.id: zscaler-nss 
+- pipeline.id: kinesis_from_cloudwatch
+  path.config: "/usr/share/logstash/config/pipelines/kinesis_from_cloudwatch.conf"
+- pipeline.id: kinesis_from_logstash
+  path.config: "/usr/share/logstash/config/pipelines/kinesis_from_logstash.conf"
+- pipeline.id: govuk-paas
+  path.config: "/usr/share/logstash/config/pipelines/nss_syslog.conf"
