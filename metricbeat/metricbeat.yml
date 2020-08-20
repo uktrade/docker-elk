@@ -9,13 +9,15 @@ output.elasticsearch:
   username: ${ES_USERNAME}
   password: ${ES_PASSWORD}
   protocol: https
-
+  varification_mode: none 
+  
 ssl:
   enabled: true
   certificate_authorities: ['/usr/share/metricbeat/config/ca.crt']
   certificate: '/usr/share/metricbeat/config/node.crt'
   key: '/usr/share/metricbeat/config/node.key'
   client_authentication: none
+
 
 
 monitoring.enabled: true
