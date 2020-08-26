@@ -12,14 +12,12 @@ output.elasticsearch:
   verification_mode: "none"
   
 ssl:
-  enabled: true
+  enabled: false
   certificate_authorities: ['/usr/share/metricbeat/config/ca.crt']
   certificate: '/usr/share/metricbeat/config/node.crt'
   key: '/usr/share/metricbeat/config/node.key'
   client_authentication: none
   verification_mode: "none"
-
-
 
 monitoring.enabled: true
 monitoring.elasticsearch:
