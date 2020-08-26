@@ -9,7 +9,7 @@ output.elasticsearch:
   username: ${ES_USERNAME}
   password: ${ES_PASSWORD}
   protocol: https
-  varification_mode: none 
+  verification_mode: none 
   
 ssl:
   enabled: true
