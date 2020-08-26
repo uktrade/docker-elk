@@ -9,7 +9,7 @@ output.elasticsearch:
   username: ${ES_USERNAME}
   password: ${ES_PASSWORD}
   protocol: https
-  verification_mode: none 
+  verification_mode: "none"
   
 ssl:
   enabled: true
@@ -17,7 +17,7 @@ ssl:
   certificate: '/usr/share/metricbeat/config/node.crt'
   key: '/usr/share/metricbeat/config/node.key'
   client_authentication: none
-  verification_mode: none 
+  verification_mode: "none"
 
 
 
@@ -42,3 +42,4 @@ metricbeat.modules:
     username: ${METRIC_1_USER}
     password: ${METRIC_1_PASSWORD}
     metrics_path: /metrics
+    ssl.verification_mode: "none"
