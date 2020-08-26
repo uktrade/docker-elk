@@ -36,7 +36,7 @@ setup.ilm:
 metricbeat.modules:
   - module: prometheus
     headers: 
-      accept: "text/plain"
+      content-type: "text/plain"
     period: 10s
     hosts: ["${METRIC_1_EXPORTER_HOST}"]
     enabled: true
