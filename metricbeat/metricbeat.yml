@@ -17,6 +17,7 @@ ssl:
   certificate: '/usr/share/metricbeat/config/node.crt'
   key: '/usr/share/metricbeat/config/node.key'
   client_authentication: none
+  verification_mode: none 
 
 
 
