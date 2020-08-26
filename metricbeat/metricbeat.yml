@@ -36,8 +36,8 @@ setup.ilm:
 metricbeat.modules:
   - module: prometheus
     period: 10s
-    hosts: ["${GOV_PAAS_EXPORTER_HOST}"]
+    hosts: ["${METRIC_1_EXPORTER_HOST}"]
     enabled: true
-    username: ${GOV_PAAS_USER}
-    password: ${GOV_PAAS_PASSWORD}
+    username: ${METRIC_1_USER}
+    password: ${METRIC_1_PASSWORD}
     metrics_path: /metrics
