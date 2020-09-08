@@ -12,6 +12,7 @@ COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
 COPY pipelines/* /usr/share/logstash/config/pipelines/
 COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
 USER root
+RUN chown logstash:logstash /usr/share/logstash/config/pipelines/patterns
 RUN chown logstash:logstash bin/entrypoint.sh && chmod 0750 bin/entrypoint.sh
 RUN chown logstash:logstash /usr/share/logstash/config/logstash.yml && chmod 0750 /usr/share/logstash/config/logstash.yml
 USER logstash
