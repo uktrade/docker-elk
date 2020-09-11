@@ -4,5 +4,5 @@
   path.config: "/usr/share/logstash/config/pipelines/kinesis_from_logstash.conf"
 - pipeline.id: zscaler
   path.config: "/usr/share/logstash/config/pipelines/nss_syslog.conf"
-# - pipeline.id: gsuite
-#   path.config: "/usr/share/logstash/config/pipelines/gsuite_logs.conf"
+- pipeline.id: gsuite
+  path.config: "/usr/share/logstash/config/pipelines/gsuite_logs.conf"
