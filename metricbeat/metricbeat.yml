@@ -16,6 +16,7 @@ ssl:
   enabled: false
 
 setup.template.name: "metricbeat"
+setup.template.pattern: "metricbeat"
 monitoring.enabled: true
 monitoring.elasticsearch:
   username: ${ES_MONITORING_USERNAME}
