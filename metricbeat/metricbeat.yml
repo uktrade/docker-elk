@@ -16,6 +16,9 @@ ssl:
   enabled: false
 
 setup.ilm: false
+setup.template.name: "metricbeat"
+setup.template.pattern: "metricbeat-*"
+setup.template.overwrite: false
 
 monitoring.enabled: true
 monitoring.elasticsearch:
