@@ -13,11 +13,6 @@ output.elasticsearch:
   
 ssl:
   enabled: false
-  # certificate_authorities: ['/usr/share/metricbeat/config/ca.crt']
-  # certificate: '/usr/share/metricbeat/config/node.crt'
-  # key: '/usr/share/metricbeat/config/node.key'
-  # client_authentication: none
-  # verification_mode: "none"
 
 monitoring.enabled: true
 monitoring.elasticsearch:
@@ -25,11 +20,8 @@ monitoring.elasticsearch:
   password: ${ES_MONITORING_PASSWORD}
 
 setup.ilm:
-  enabled: auto
+  enabled: false
   index: metricbeat
-  rollover_alias: metricbeat
-  pattern: "{now/d}-000001"
-  check_exists: false
 
 
 metricbeat.modules:
