@@ -15,7 +15,7 @@ output.elasticsearch:
 ssl:
   enabled: false
 
-setup.ilm: false
+setup.ilm.enabled: false
 setup.template.name: "metricbeat"
 setup.template.pattern: "metricbeat-*"
 setup.template.overwrite: false
