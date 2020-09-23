@@ -2,10 +2,7 @@ FROM docker.elastic.co/logstash/logstash:7.8.0
 
 RUN cd /usr/share/logstash && \
 	bin/logstash-plugin install logstash-input-kinesis && \
-	bin/logstash-plugin install logstash-codec-cloudwatch_logs && \
-	bin/logstash-plugin install logstash-input-google_cloud_storage && \
-	bin/logstash-plugin install logstash-input-exec && \
-	bin/logstash-plugin install logstash-input-google_pubsub
+	bin/logstash-plugin install logstash-codec-cloudwatch_logs
 
 #COPY *.gem /usr/share/logstash/
 #RUN cd /usr/share/logstash && ls *.gem | xargs bin/logstash-plugin install
