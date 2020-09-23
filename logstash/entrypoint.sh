@@ -2,7 +2,7 @@
 
 keytool -genkey -keyalg RSA -alias selfsigned -keystore /usr/share/logstash/config/keystore.jks -validity 360 -keysize 2048 -noprompt -dname "CN=logstash.uktrade.io, OU=ID, O=DIT, L=London, S=London, C=GB" -storepass password -keypass password
 
-echo $GSUITE_KEY_FILE | base64 --decode > /usr/share/logstash/config/logstash-sa.json
+#echo $GSUITE_KEY_FILE | base64 --decode > /usr/share/logstash/config/logstash-sa.json
 #export GOOGLE_APPLICATION_CREDENTIALS="/usr/share/logstash/config/logstash-sa.json"
 
 set +o history
