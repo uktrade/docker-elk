@@ -1,0 +1,24 @@
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  ssl.verification_mode: none
+
+setup.ilm.enabled: auto
+setup.ilm.rollover_alias: "dit-gsuite"
+setup.ilm.pattern: "{now/d}-000001"
+setup.ilm.check_exists: false
+
+filebeat.modules:
+  - module: gsuite
+    login:
+      enabled: true
+      var.jwt_file: "/var/tmp/credentials_file.json"
+      var.delegated_account: "user@example.com"
+
+monitoring:
+  enabled: true
+  elasticsearch:
+    username: "${ES_MONITORING_USERNAME}"
+    password: "${ES_MONITORING_PASSWORD}"

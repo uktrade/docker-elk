@@ -1,0 +1,13 @@
+FROM docker.elastic.co/beats/filebeat:7.7.0
+
+COPY filebeat.yml /usr/share/filebeat/filebeat.yml
+COPY entrypoint.sh /usr/share/bin/entrypoint.sh
+
+USER root
+RUN chown root:filebeat /usr/share/filebeat/filebeat.yml
+RUN chmod go-w /usr/share/filebeat/filebeat.yml
+RUN chown root:filebeat /usr/share/bin/entrypoint.sh && chmod 0750 /usr/share/bin/entrypoint.sh
+
+USER filebeat
+
+ENTRYPOINT ["/bin/bash", "-c", "echo $GSUITE_KEY_FILE | base64 --decode > /var/tmp/credentials_file.json"]
