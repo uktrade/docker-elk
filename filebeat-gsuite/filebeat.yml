@@ -5,10 +5,7 @@ output.elasticsearch:
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
 
-setup.ilm.enabled: auto
-setup.ilm.rollover_alias: "dit-gsuite"
-setup.ilm.pattern: "{now/d}-000001"
-setup.ilm.check_exists: false
+index: "dit-gsuite"
 
 filebeat.modules:
   - module: gsuite
