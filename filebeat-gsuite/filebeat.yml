@@ -4,32 +4,31 @@ output.console:
 filebeat.modules:
   - module: gsuite
     user_accounts:
-      enabled: true 
+      enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
     saml:
       enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
     login:
-      enabled: true 
+      enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
     admin:
-      enabled: true 
+      enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
     drive:
       enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
     groups:
-      enabled: true 
+      enabled: true
       var.jwt_file: "/usr/share/filebeat/credentials_file.json"
-      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+      var.delegated_account: "${DELEGATE_EMAIL}"
 
 monitoring:
   enabled: false
 
 logging.level: debug
-
