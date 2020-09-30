@@ -8,4 +8,4 @@ RUN chmod go-w /usr/share/filebeat/filebeat.yml
 
 USER filebeat
 
-#RUN ["/bin/bash", "-c", "echo $GSUITE_KEY_FILE | base64 --decode > /var/tmp/credentials_file.json"]
+RUN ["/bin/bash", "-c", "echo $GSUITE_KEY_FILE | base64 --decode > /usr/share/filebeat/credentials_file.json"]

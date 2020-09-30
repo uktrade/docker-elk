@@ -1,21 +1,35 @@
-output.elasticsearch:
-  hosts: ["${ES_HOST}"]
-  protocol: "https"
-  username: "${ES_USERNAME}"
-  password: "${ES_PASSWORD}"
-  ssl.verification_mode: none
-
-index: "dit-gsuite"
+output.console:
+  pretty: true
 
 filebeat.modules:
   - module: gsuite
-    login:
+    user_accounts:
+      enabled: true 
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+    saml:
       enabled: true
-      var.jwt_file: "/var/tmp/credentials_file.json"
-      var.delegated_account: "user@example.com"
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+    login:
+      enabled: true 
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+    admin:
+      enabled: true 
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+    drive:
+      enabled: true
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
+    groups:
+      enabled: true 
+      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.delegated_account: lyndon.garvey@data.trade.gov.uk
 
 monitoring:
-  enabled: true
-  elasticsearch:
-    username: "${ES_MONITORING_USERNAME}"
-    password: "${ES_MONITORING_PASSWORD}"
+  enabled: false
+
+logging.level: debug
+
