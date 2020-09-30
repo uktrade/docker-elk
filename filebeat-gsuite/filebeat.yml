@@ -1,34 +1,41 @@
-output.console:
-  pretty: true
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  ssl.verification_mode: none
+
+index: "dit-gsuite"
 
 filebeat.modules:
   - module: gsuite
     user_accounts:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
     saml:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
     login:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
     admin:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
     drive:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
     groups:
       enabled: true
-      var.jwt_file: "/usr/share/filebeat/credentials_file.json"
+      var.jwt_file: "/usr/share/filebeat/data/credentials_file.json"
       var.delegated_account: "${DELEGATE_EMAIL}"
 
 monitoring:
-  enabled: false
-
-logging.level: debug
+  enabled: true
+  elasticsearch:
+    username: "${ES_MONITORING_USERNAME}"
+    password: "${ES_MONITORING_PASSWORD}"
