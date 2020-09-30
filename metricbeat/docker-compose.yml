@@ -3,13 +3,13 @@ version: '2.2'
 services:
   metricbeat:
     build: .
-    depends_on: 
+    depends_on:
       elasticsearch:
         condition: service_healthy
       kibana:
         condition: service_healthy
     container_name: metricbeat
-    environment: 
+    environment:
       - KIBANA_HOST
       - KIBANA_USERNAME
       - KIBANA_PASSWORD
@@ -21,6 +21,9 @@ services:
       - METRIC_1_EXPORTER_HOST
       - METRIC_1_USER
       - METRIC_1_PASSWORD
+      - METRIC_REDIS_EXPORTER_HOST
+      - METRIC_REDIS_USER
+      - METRIC_REDIS_PASSWORD
       - METRICBEAT_SSL_CA
       - METRICBEAT_SSL_KEY
       - METRICBEAT_SSL_CERT
@@ -55,7 +58,7 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:7.6.2
     container_name: kibana
-    depends_on: 
+    depends_on:
       elasticsearch:
         condition: service_healthy
     ports:
@@ -69,8 +72,8 @@ services:
       interval: 10s
       retries: 20
       test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:5601/api/status
-  
-      
+
+
 networks:
   elastic:
     driver: bridge

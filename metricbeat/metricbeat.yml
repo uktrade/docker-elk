@@ -11,7 +11,7 @@ output.elasticsearch:
   index: metricbeat
   protocol: https
   ssl.verification_mode: "none"
-  
+
 ssl:
   enabled: false
 
@@ -32,5 +32,14 @@ metricbeat.modules:
     enabled: true
     username: ${METRIC_1_USER}
     password: ${METRIC_1_PASSWORD}
+    metrics_path: /metrics
+    ssl.verification_mode: "none"
+
+  - module: prometheus
+    period: 300s
+    hosts: ["${METRIC_REDIS_EXPORTER_HOST}"]
+    enabled: true
+    username: ${METRIC_REDIS_USER}
+    password: ${METRIC_REDIS_PASSWORD}
     metrics_path: /metrics
     ssl.verification_mode: "none"
