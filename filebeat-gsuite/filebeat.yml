@@ -4,8 +4,12 @@ output.elasticsearch:
   username: "${ES_USERNAME}"
   password: "${ES_PASSWORD}"
   ssl.verification_mode: none
+  index: "dit-gsuite-%{+yyyy.MM.dd}"
 
-index: "dit-gsuite"
+setup.template:
+  name: 'dit-gsuite'
+  pattern: 'dit-gsuite-*'
+  enabled: false
 
 filebeat.modules:
   - module: gsuite
