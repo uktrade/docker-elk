@@ -45,7 +45,7 @@ metricbeat.modules:
     ssl.verification_mode: "none"
 
   - module: prometheus
-    period: 10s
+    period: 30s
     hosts: ["${DATAFLOW_DEV_EXPORTER_HOST}"]
     enabled: true
     metrics_path: /admin/metrics/
