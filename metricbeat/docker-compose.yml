@@ -1,0 +1,79 @@
+version: '2.2'
+
+services:
+  metricbeat:
+    build: .
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+    container_name: metricbeat
+    environment:
+      - KIBANA_HOST
+      - KIBANA_USERNAME
+      - KIBANA_PASSWORD
+      - ES_HOST
+      - ES_USERNAME
+      - ES_PASSWORD
+      - ES_MONITORING_USERNAME
+      - ES_MONITORING_PASSWORD
+      - METRIC_1_EXPORTER_HOST
+      - METRIC_1_USER
+      - METRIC_1_PASSWORD
+      - METRIC_REDIS_EXPORTER_HOST
+      - METRIC_REDIS_USER
+      - METRIC_REDIS_PASSWORD
+      - METRICBEAT_SSL_CA
+      - METRICBEAT_SSL_KEY
+      - METRICBEAT_SSL_CERT
+    cap_add: ["CHOWN","SETGID","SETUID"]
+    cap_drop: ["ALL"]
+    command: /bin/entrypoint.sh
+    networks:
+      - elastic
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - xpack.license.self_generated.type=trial
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+    healthcheck:
+      interval: 10s
+      retries: 20
+      test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.6.2
+    container_name: kibana
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    ports:
+      - 5601:5601
+    environment:
+      - ELASTICSEARCH_URL="http://elasticsearch:9200"
+      - ELASTICSEARCH_HOSTS="http://elasticsearch:9200"
+    networks:
+      - elastic
+    healthcheck:
+      interval: 10s
+      retries: 20
+      test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:5601/api/status
+
+
+networks:
+  elastic:
+    driver: bridge
