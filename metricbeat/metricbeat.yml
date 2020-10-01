@@ -48,5 +48,5 @@ metricbeat.modules:
     period: 10s
     hosts: ["${DATAFLOW_DEV_EXPORTER_HOST}"]
     enabled: true
-    metrics_path: /admin/metrics
+    metrics_path: /admin/metrics/
     ssl.verification_mode: "none"
