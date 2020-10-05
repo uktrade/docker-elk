@@ -50,3 +50,17 @@ metricbeat.modules:
     enabled: true
     metrics_path: /admin/metrics/
     ssl.verification_mode: "none"
+
+  - module: prometheus
+    period: 30s
+    hosts: ["${DATAFLOW_STAGING_EXPORTER_HOST}"]
+    enabled: true
+    metrics_path: /admin/metrics/
+    ssl.verification_mode: "none"
+
+  - module: prometheus
+    period: 30s
+    hosts: ["${DATAFLOW_PRODUCTION_EXPORTER_HOST}"]
+    enabled: true
+    metrics_path: /admin/metrics/
+    ssl.verification_mode: "none"
