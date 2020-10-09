@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.9.2
+FROM docker.elastic.co/logstash/logstash:7.8.0
 
 RUN cd /usr/share/logstash && \
 	bin/logstash-plugin install logstash-input-kinesis && \
