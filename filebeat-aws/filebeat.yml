@@ -1,0 +1,43 @@
+output.elasticsearch:
+  hosts: ["${ES_HOST}"]
+  protocol: "https"
+  username: "${ES_USERNAME}"
+  password: "${ES_PASSWORD}"
+  ssl.verification_mode: none
+  index: "dit-aws"
+
+setup.ilm.enabled: false
+
+setup.template.pattern: "dit-aws-*"
+setup.template.name: "dit-aws"
+# output.console:
+#   pretty: true
+
+filebeat.modules:
+  - module: aws
+    cloudtrail:
+      enabled: true
+      var.queue_url: ${SQS_URL}
+      var.access_key_id: ${ACCESS_KEY_ID}
+      var.secret_access_key: ${SECRET_ACCESS_KEY}
+
+    cloudwatch:
+      enabled: false
+
+    ec2:
+      enabled: false
+
+    elb:
+      enabled: false
+
+    s3access:
+      enabled: false
+
+    vpcflow:
+      enabled: false
+
+monitoring:
+  enabled: true
+  elasticsearch:
+    username: "${ES_MONITORING_USERNAME}"
+    password: "${ES_MONITORING_PASSWORD}"
