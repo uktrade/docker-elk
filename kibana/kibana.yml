@@ -15,5 +15,7 @@ server:
 
 xpack.security.public:
   protocol: https
-  hostname: elk.uktrade.digital
+  hostname: ${HOSTNAME} 
   port: 443
+
+xpack.reporting.csv.maxSizeBytes: 5368706371
