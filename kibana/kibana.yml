@@ -23,4 +23,4 @@ xpack.security.public:
   hostname: ${HOSTNAME} 
   port: 443
 
-xpack.reporting.csv.maxSizeBytes: 5368706371
+xpack.reporting.csv.maxSizeBytes: 52428800 
