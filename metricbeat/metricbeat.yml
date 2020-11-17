@@ -27,15 +27,6 @@ monitoring.elasticsearch:
 
 metricbeat.modules:
   - module: prometheus
-    period: 10s
-    hosts: ["${METRIC_1_EXPORTER_HOST}"]
-    enabled: true
-    username: ${METRIC_1_USER}
-    password: ${METRIC_1_PASSWORD}
-    metrics_path: /metrics
-    ssl.verification_mode: "none"
-
-  - module: prometheus
     period: 300s
     hosts: ["${METRIC_REDIS_EXPORTER_HOST}"]
     enabled: true
