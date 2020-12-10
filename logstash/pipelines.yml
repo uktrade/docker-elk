@@ -1,11 +1,3 @@
-- pipeline.id: kinesis_from_logstash
-  path.config: "/usr/share/logstash/config/pipelines/kinesis_from_logstash.conf"
-#- pipeline.id: dlq_kinesis_from_logstash
-#  path.config: "/usr/share/logstash/config/pipelines/dlq_kinesis_from_logstash.conf"
-- pipeline.id: kinesis_from_cloudwatch
-  path.config: "/usr/share/logstash/config/pipelines/kinesis_from_cloudwatch.conf"
-#- pipeline.id: dlq_kinesis_from_cloudwatch
-#  path.config: "/usr/share/logstash/config/pipelines/dlq_kinesis_from_cloudwatch.conf"
 - pipeline.id: zscaler
   path.config: "/usr/share/logstash/config/pipelines/nss_syslog.conf"
 - pipeline.id: dlq_zscaler
