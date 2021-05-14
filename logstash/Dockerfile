@@ -14,7 +14,7 @@ COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
 USER root
 RUN chown logstash:logstash bin/entrypoint.sh && chmod 0750 bin/entrypoint.sh
 RUN chown logstash:logstash /usr/share/logstash/config/logstash.yml && chmod 0750 /usr/share/logstash/config/logstash.yml
-RUN mkdir /usr/share/logstash/data/dead_letter_queue && chown logstash:logstash /usr/share/logstash/data/dead_letter_queue && chmod 0750 /usr/share/logstash/data/dead_letter_queue
+#RUN mkdir /usr/share/logstash/data/dead_letter_queue && chown logstash:logstash /usr/share/logstash/data/dead_letter_queue && chmod 0750 /usr/share/logstash/data/dead_letter_queue
 USER logstash
 
 EXPOSE 3332
