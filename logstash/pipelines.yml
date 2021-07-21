@@ -2,8 +2,8 @@
   path.config: "/usr/share/logstash/config/pipelines/kinesis_from_logstash.conf"
 - pipeline.id: kinesis_from_cloudwatch
   path.config: "/usr/share/logstash/config/pipelines/kinesis_from_cloudwatch.conf"
-- pipeline.id: paas_logs
-  path.config: "/usr/share/logstash/config/pipelines/paas_logs.conf"
+#- pipeline.id: paas_logs
+#  path.config: "/usr/share/logstash/config/pipelines/paas_logs.conf"
 
 #- pipeline.id: dlq_kinesis_from_logstash
 #  path.config: "/usr/share/logstash/config/pipelines/dlq_kinesis_from_logstash.conf"
