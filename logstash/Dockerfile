@@ -1,8 +1,9 @@
-FROM docker.elastic.co/logstash/logstash:7.12.1
+FROM docker.elastic.co/logstash/logstash:6.8.17
 
 RUN cd /usr/share/logstash && \
 	bin/logstash-plugin install logstash-input-kinesis && \
-	bin/logstash-plugin install logstash-codec-cloudwatch_logs
+	bin/logstash-plugin install logstash-codec-cloudwatch_logs && \
+        bin/logstash-plugin install logstash-output-amazon_es
 
 #COPY *.gem /usr/share/logstash/
 #RUN cd /usr/share/logstash && ls *.gem | xargs bin/logstash-plugin install
