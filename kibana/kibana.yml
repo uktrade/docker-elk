@@ -9,7 +9,7 @@ elasticsearch.hosts:
 
 elasticsearch.ssl.verificationMode: none
 
-pack.security.enable: true
+xpack.security.enable: true
 xpack.security.authc.providers: [basic]
 
 server:
