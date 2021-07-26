@@ -9,8 +9,8 @@ elasticsearch.hosts:
 
 elasticsearch.ssl.verificationMode: none
 
-xpack.security.authc.providers: [saml, basic]
-server.xsrf.whitelist: [/api/security/v1/saml,/api/security/saml/callback]
+pack.security.enable: true
+xpack.security.authc.providers: [basic]
 
 server:
   ssl:
