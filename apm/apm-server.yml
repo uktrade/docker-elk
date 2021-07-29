@@ -41,7 +41,7 @@ apm-server:
 
 setup.template.enabled: true
 setup.template.settings:
-  index.number_of_shards: 5
+  index.number_of_shards: 3
 
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
