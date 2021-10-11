@@ -1,7 +1,7 @@
 http.host: "0.0.0.0"
 
-#log.level: trace
-#config.debug: true
+log.level: trace
+config.debug: true
 
-dead_letter_queue.enable: false 
+dead_letter_queue.enable: false
 path.dead_letter_queue: "/usr/share/logstash/data/dead_letter_queue"
