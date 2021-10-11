@@ -1,0 +1,2 @@
+- pipeline.id: sentine_export
+  path.config: "/usr/share/logstash/config/pipelines/sentinel.conf"
