@@ -1,6 +1,7 @@
 FROM docker.elastic.co/logstash/logstash:7.15.0
 
 RUN cd /usr/share/logstash && \
+				bin/logstash-plugin install logstash-codec-cloudwatch_logs && \
 				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
 COPY logstash.yml /usr/share/logstash/config
