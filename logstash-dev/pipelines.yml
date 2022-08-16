@@ -1,2 +1,2 @@
-- pipeline.id: sentinel_aws_vpn
-  path.config: "/usr/share/logstash/config/pipelines/sentinel_aws_vpn.conf"
+- pipeline.id: cloudfront_sentinel_elasticsearch
+  path.config: "/usr/share/logstash/config/pipelines/cloudfront_sentinel_elasticsearch.conf"
