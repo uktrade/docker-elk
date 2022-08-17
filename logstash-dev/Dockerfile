@@ -3,7 +3,8 @@ FROM docker.elastic.co/logstash/logstash:7.17.5
 RUN cd /usr/share/logstash && \
 				bin/logstash-plugin install logstash-codec-cloudwatch_logs && \
 				bin/logstash-plugin install logstash-input-kinesis && \
-				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
+				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics && \
+				bin/logstash-plugin install logstash-output-amazon_es
 
 COPY logstash.yml /usr/share/logstash/config
 COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
