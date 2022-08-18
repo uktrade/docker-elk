@@ -1,0 +1,11 @@
+filebeat.inputs:
+- type: aws-s3
+  queue_url: "${FILEBEAT_INPUT_QUEUE_URL}"
+  number_of_workers: "${FILEBEAT_INPUT_WORKERS}"
+  expand_event_list_from_field: Records
+
+output.logstash:
+  hosts: ["${FILEBEAT_OUTPUT_HOST}"]
+
+logging.metrics.enabled: false
+monitoring.enabled: false
