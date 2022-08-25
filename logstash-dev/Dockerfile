@@ -4,7 +4,8 @@ RUN cd /usr/share/logstash && \
 				bin/logstash-plugin install logstash-input-kinesis && \
 				bin/logstash-plugin install logstash-input-beats && \
 				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics && \
-				bin/logstash-plugin install logstash-output-opensearch
+				bin/logstash-plugin install logstash-output-opensearch && \
+				bin/logstash-plugin install logstash-output-sqs
 
 COPY logstash.yml /usr/share/logstash/config
 COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
