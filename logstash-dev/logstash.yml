@@ -5,3 +5,5 @@ http.host: "127.0.0.1"
 
 dead_letter_queue.enable: false
 path.dead_letter_queue: "/usr/share/logstash/data/dead_letter_queue"
+
+pipeline.ecs_compatibility: disabled 
