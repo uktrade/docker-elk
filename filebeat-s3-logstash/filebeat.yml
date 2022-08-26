@@ -2,6 +2,9 @@ filebeat.inputs:
 - type: aws-s3
   queue_url: "${FILEBEAT_INPUT_QUEUE_URL}"
   number_of_workers: "${FILEBEAT_INPUT_WORKERS}"
+  multiline.pattern: '^#'
+  multiline.negate: false
+  multiline.match: before
 
 output.logstash:
   hosts: ["${FILEBEAT_OUTPUT_HOST}"]
