@@ -8,7 +8,9 @@ import boto3
 
 # Initialise logging
 logger = logging.getLogger("S3-PURGE")
-logger.setLevel(os.environ.get("LOG_LEVEL", logging.INFO))
+logger.setLevel(
+    os.environ.get("LOG_LEVEL", "INFO").upper()
+    )
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(stdout_handler)
 
