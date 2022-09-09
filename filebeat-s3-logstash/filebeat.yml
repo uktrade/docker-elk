@@ -11,6 +11,8 @@ filebeat.inputs:
 
 output.logstash:
   hosts: ["${FILEBEAT_OUTPUT_HOST}"]
+  ttl: "${FILEBEAT_OUTPUT_TTL}"
+  pipelining: "${FILEBEAT_OUTPUT_PIPELINING}"
 
 logging.metrics.enabled: false
 monitoring.enabled: false
