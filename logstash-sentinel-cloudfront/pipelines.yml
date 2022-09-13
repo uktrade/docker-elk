@@ -1,0 +1,2 @@
+- pipeline.id: sentinel_cloudfront
+  path.config: "/usr/share/logstash/config/pipelines/sentinel_cloudfront.conf"
