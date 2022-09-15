@@ -1,0 +1,18 @@
+filebeat.inputs:
+- type: aws-s3
+  queue_url: "${FILEBEAT_INPUT_QUEUE_URL}"
+  number_of_workers: "${FILEBEAT_INPUT_WORKERS}"
+  parsers:
+  - multiline:
+      type: pattern
+      pattern: '^#'
+      negate: false
+      match: before
+
+output.logstash:
+  hosts: ["${FILEBEAT_OUTPUT_HOST}"]
+  ttl: "${FILEBEAT_OUTPUT_TTL}"
+  pipelining: "${FILEBEAT_OUTPUT_PIPELINING}"
+
+logging.metrics.enabled: false
+monitoring.enabled: false
