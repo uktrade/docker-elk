@@ -1,0 +1,2 @@
+- pipeline.id: sentinel_waf
+  path.config: "/usr/share/logstash/config/pipelines/sentinel_waf.conf"
