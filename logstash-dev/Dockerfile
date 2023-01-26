@@ -1,6 +1,5 @@
 # FROM docker.elastic.co/logstash/logstash:6.8.6
-#FROM docker.elastic.co/logstash/logstash:7.17.8
-FROM docker.elastic.co/logstash/logstash:8.6.0
+FROM docker.elastic.co/logstash/logstash:7.17.8
 
 RUN cd /usr/share/logstash && bin/logstash-plugin install logstash-output-kinesis
 
