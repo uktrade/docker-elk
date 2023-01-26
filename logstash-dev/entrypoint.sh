@@ -11,6 +11,6 @@ set -euo pipefail
 set +o history
 export LOGSTASH_KEYSTORE_PASS=password
 set -o history
-bin/logstash-keystore create
+bin/logstash-keystore --path.settings /etc/logstash create
 
 exec /usr/local/bin/docker-entrypoint
