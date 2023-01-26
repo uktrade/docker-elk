@@ -1,7 +1,9 @@
 http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline
+xpack.monitoring.enabled: false
+#xpack.monitoring.elasticsearch.url: https://elasticsearch:9200
+#xpack.monitoring.elasticsearch.username: logstash_system
+#xpack.monitoring.elasticsearch.password: changeme
 
-# log.level: trace
-# config.debug: true
-
-dead_letter_queue.enable: false
-path.dead_letter_queue: "/usr/share/logstash/data/dead_letter_queue"
+#log.level: debug
+#config.debug: true
