@@ -7,6 +7,7 @@ COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
 COPY logstash.yml /usr/share/logstash/config
 USER root
 RUN chown logstash:logstash /usr/share/logstash/config/logstash.yml && chmod 0750 /usr/share/logstash/config/logstash.yml
+RUN mkdir /etc/logstash
 USER logstash
 RUN rm /usr/share/logstash/pipeline/*
 COPY pipeline/ /usr/share/logstash/pipeline
@@ -14,4 +15,3 @@ COPY pipeline/ /usr/share/logstash/pipeline
 EXPOSE 3332
 ENTRYPOINT ["/bin/bash"]
 CMD ["/usr/share/logstash/bin/entrypoint.sh"]
-
