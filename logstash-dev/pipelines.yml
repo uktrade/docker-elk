@@ -1,2 +1,2 @@
 - pipeline.id: sentinel_aws_vpn
-  path.config: "/usr/share/logstash/config/pipelines/logstash.conf"
+  path.config: "/usr/share/logstash/config/pipelines/sentinel_aws_vpn.conf"
