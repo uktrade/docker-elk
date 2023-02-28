@@ -4,10 +4,10 @@ filebeat.inputs:
   number_of_workers: "${FILEBEAT_INPUT_WORKERS}"
   parsers:
   - multiline:
-      type: pattern
-      pattern: '^#'
-      negate: false
-      match: before
+      type: ${FILEBEAT_MULTILINE_PARSER_TYPE}
+      pattern: '${FILEBEAT_MULTILINE_PARSER_PATTERN}'
+      negate: ${FILEBEAT_MULTILINE_PARSER_NEGATE}
+      match: ${FILEBEAT_MULTILINE_PARSER_MATCH}
 
 output.logstash:
   hosts: ["${FILEBEAT_OUTPUT_HOST}"]
