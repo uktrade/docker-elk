@@ -1,0 +1,2 @@
+- pipeline.id: bucket_to_sentinel
+  path.config: "/usr/share/logstash/config/pipelines/bucket_to_sentinel.conf"
