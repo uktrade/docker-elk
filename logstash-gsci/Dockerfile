@@ -2,7 +2,7 @@ FROM docker.elastic.co/logstash/logstash:8.6.2
 
 RUN cd /usr/share/logstash && \
 				bin/logstash-plugin install logstash-input-beats && \
-				bin/logstash-plugin install logstash-output-sqs && \
+				bin/logstash-plugin install logstash-integration-aws && \
 				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
 COPY logstash.yml /usr/share/logstash/config
