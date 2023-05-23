@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.17.10
+FROM docker.elastic.co/logstash/logstash:7.17.6
 
 RUN cd /usr/share/logstash && \
 				bin/logstash-plugin install logstash-input-beats && \
