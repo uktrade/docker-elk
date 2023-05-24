@@ -3,7 +3,7 @@ FROM docker.elastic.co/logstash/logstash:7.17.6
 RUN cd /usr/share/logstash && \
 				bin/logstash-plugin install logstash-input-beats && \
 				bin/logstash-plugin install logstash-output-sqs && \
-				bin/logstash-plugin install microsoft-logstash-output-azure-loganalytics
+				bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin
 
 COPY logstash.yml /usr/share/logstash/config
 COPY entrypoint.sh /usr/share/logstash/bin/entrypoint.sh
