@@ -1,0 +1,2 @@
+- pipeline.id: inspector2_findings
+  path.config: "/usr/share/logstash/config/pipelines/sentinel_aws_inspector2.conf"  
