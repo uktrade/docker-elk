@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.17.27
+FROM docker.elastic.co/logstash/logstash:8.17.2
 
 RUN cd /usr/share/logstash && \
 		bin/logstash-plugin install logstash-codec-cloudwatch_logs && \
